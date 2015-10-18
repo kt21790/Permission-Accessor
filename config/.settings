@@ -1,0 +1,19 @@
+{
+    "username": "ketan.dev@freelance.com", 
+    "environment": "production", 
+    "project_name": "Permissioner", 
+    "workspace": "C:/Projects", 
+    "org_url": "", 
+    "namespace": "", 
+    "id": "3H5N0O2HB8OX5122FZAQ533YX9QU8HVI", 
+    "metadata_container": "1dc28000000NtxNAAS", 
+    "subscription": [
+        "ApexClass", 
+        "ApexComponent", 
+        "ApexPage", 
+        "ApexTrigger", 
+        "StaticResource", 
+        "CustomObject", 
+        "Profile"
+    ]
+}

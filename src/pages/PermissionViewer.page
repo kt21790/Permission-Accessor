@@ -1,0 +1,49 @@
+<apex:page docType="html- 5.0" sidebar="true" showHeader="true" standardStylesheets="false" controller="PermissionViewerCtrl">
+     <!--Remote Object for Permission Set -->
+    <apex:remoteObjects >
+        <apex:remoteObjectModel name="permissionSet" jsShorthand="pS" fields="Name,Id">
+            <apex:remoteObjectField name="IsOwnedByProfile" jsShorthand="isProfile"/>
+        </apex:remoteObjectModel>
+    </apex:remoteObjects>
+
+    <html>
+        <head></head>
+        <Script>
+           //Define angular module
+           var angularModule = angular.module('angularModule',[]);
+           angularModule.controller('AppCtrl', ['$scope', function($scope{
+            var psSelectOptionJSON = {!psSelectOptionJSON};
+            var psNames = angular.fromJson(psSelectOptionJSON);
+            for(var item in psNames) {
+                console.log(psNames[item].psId + ':' + psNames[item].psName );
+            }
+            $scope.psNames = psNames;
+            // Function to pass selected PS Id to Apex Controller.
+                  $scope.psNameChange = function() {
+                      console.log($scope.selectedpsOption.psId + ': ' + $scope.selectedpsOption.psName);
+                      console.log('selectedpsId: ' + "{!selectedpsId}");
+                      //sforce.connection.sessionId = "{!$Api.Session_ID}";
+                      //console.log(sforce.connection.getUserInfo().userId);
+                      //console.log(sforce.connection.getUserInfo().userName);
+                      //populateContractsInQueue($scope.selectedQueueOption.queueId);
+                  }
+           }])
+
+       </script>
+       <body ng-app = "angularModule">
+            <div ng-controller = "AppCtrl">
+                
+                    <div class="row">
+                        <label>Select a Permission Set </label>&nbsp;
+                        
+                        
+                        <select class="form-control input-sm" data-ng-options="queue.queueName for queue in queueNames" ng-model="selectedQueueOption"></select>&nbsp;
+                        
+                    </div>
+                    <!-- /.row -->
+                
+            </div>
+        </body> 
+           
+    </html>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page controller="clsController">
+    <apex:image value="{!$Resource.Image}" width="20%"/>
+    <apex:pageblock title="Nominate Contacts">
+        <apex:pageBlockTable value="{!contacts}" var="contact">
+            <apex:column value="{!contact.accountId}"/>
+            <apex:column value="{!contact.name}"/>
+            <apex:column value="{!contact.phone}"/>
+            <apex:column value="{!contact.email}"/>
+        </apex:pageBlockTable>
+    
+    </apex:pageblock>
+
+</apex:page>
